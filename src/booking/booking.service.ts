@@ -51,7 +51,7 @@ export class BookingService {
       throw new UnauthorizedException('you cannot perform this action');
     }
 
-    // 🔒 IMPORTANT PART: prevent double booking
+    //  IMPORTANT PART: prevent double booking
     if (status === visitStatus.APPROVED) {
       const conflict = await this.repo.findOne({
         where: {
