@@ -89,7 +89,9 @@ export class AuthService {
       const tokens = await this.generateTokens(user);
       await this.userService.updateRefreshToken(user.id, tokens.refreshToken);
       return tokens;
-    } catch (error) {}
+    } catch (error) {
+      throw new Error();
+    }
   }
 
   private async generateTokens(user: any) {
